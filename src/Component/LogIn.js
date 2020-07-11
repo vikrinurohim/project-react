@@ -4,38 +4,61 @@ import {FaUserEdit} from "react-icons/fa";
 class LogIn extends React.Component {
     constructor(props) {
         super(props) 
-            this.state = {
-                email : '',
-                password :""
-            }
-            this.onChange = this.onChange.bind(this)
-            this.onSubmit = this.onSubmit.bind(this)
-        }
-        onChange(event) {
-            const {name,value} = event.target
-            this.setState({[name] :value})
-        }
-        onSubmit(event) {
-            event.preventDefault()
+            this.inputName = React.createRef()
+            this.inputEmail = React.createRef()
+            this.inputPassword = React.createRef()
+            this.inputPekerjaan = React.createRef()
+            this.inputJenisKelamin = React.createRef()
+            
+          }
+          onSubmit = (event) => {
+            alert("Terimakasih")
+            const {name,pekerjaan,alamat} = this.state
             event.stopProgation()
+            event.preventDefault()
         }
-    
+        
     render() {
-        const {email,password} = this.state
         return (
         <React.Fragment>
-            {/* form controlled */}
+            {/* form uncontrolled */}
             <p className="masuk"><FaUserCircle color="blue" size="4rem" /></p>
             <div className="form">
                 <form onSubmit={this.onSubmit}>
+                <label>
+                   Name:
+                   </label> <br></br>
+                   <input name="name" type="text" ref={this.inputName}   /> <br></br>
+                   <label>
+                   Email
+                   </label><br></br>
+                   <input name="email" type="email" ref={this.inputEmail}  /> <br></br>
+                   <label></label>
+                   <label>
+                   Password
+                   </label><br></br>
+                   <input name="password" type="password" ref={this.inputPassword}  /> <br></br>
+                   <label></label>
                     <label>
-                        Email
-                    </label><br></br><br></br>
-                    <input type="text" value={email} onChange={this.onChange}/> <br></br><br></br>
-                    <label>
-                        Password
-                    </label><br></br><br></br>
-                    <input type="password" value={password} onChange={this.onChange}/> <br></br>
+                   Pekerjaan
+                   </label><br></br>
+                   <input name="pekerjaan" type="text" ref={this.inputPekerjaan}  /> <br></br>
+                   <label>
+                   Laki-laki
+                   <input name="JenisKelamin" type="radio" ref={this.inputJenisKelamin} />
+               </label>
+               <label>
+                   Perempuan
+                   <input name="JenisKelamin" type="radio" ref={this.inputJenisKelamin} />
+               </label><br></br>
+               <label>Agama</label>
+               <select>
+                  <option>Islam</option>
+                  <option>Kristen</option>
+                  <option>Buddha</option>
+               </select> <br></br>
+               <label>Pengalaman</label> <br></br>
+               <textarea style={{height: "40px",width: "180px"}}></textarea> <br></br>
                     <button className="kirim">Klik</button>                
                 </form>
             </div>

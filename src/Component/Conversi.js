@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaUserEdit} from 'react-icons/fa'
+import {FaUserEdit, FaReact} from 'react-icons/fa'
 // lifting-state-up
 class Conversi extends React.Component {
     constructor(props) {
@@ -59,7 +59,7 @@ class Conversi extends React.Component {
          this.setState({kilometer,meter,desimeter,centimeter,milimeter})
      }
      onSubmit(event) {
-        alert(`Terimakasih`)
+          alert (`Terimakasih` )
          event.preventDafault()
          event.stopProgation()
      }
@@ -69,6 +69,7 @@ class Conversi extends React.Component {
           <>
            <div className="div">
                <br></br>
+             {/* form controlled */}
             <form onSubmit={this.onSubmit}>
                 <br></br>
             <label>
